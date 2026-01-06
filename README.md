@@ -44,3 +44,5 @@ En cas de problème avec les files de messages, vous pouvez utiliser :
 
 - `ipcs -q` : Pour lister les files actives.
 - `ipcrm -q <id>` : Pour supprimer manuellement une file si nécessaire.
+
+<!-- update 13 -->
