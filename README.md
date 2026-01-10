@@ -46,3 +46,4 @@ En cas de problème avec les files de messages, vous pouvez utiliser :
 - `ipcrm -q <id>` : Pour supprimer manuellement une file si nécessaire.
 
 <!-- update 13 -->
+<!-- update 14 -->
