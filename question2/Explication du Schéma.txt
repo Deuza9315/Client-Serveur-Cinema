@@ -1,0 +1,36 @@
+Explication du Schéma : Architecture de communication (Files de Messages IPC)
+1. Le visuel (ce qu'il faut dessiner) :
+Imagine trois blocs alignés :
+Bloc de GAUCHE : Le Processus CLIENT
+Bloc du MILIEU (un cylindre ou une boîte) : La FILE DE MESSAGES (Gérée par le Noyau Linux)
+Bloc de DROITE : Le Processus SERVEUR
+2. Les flèches et le flux (Le trajet des données) :
+Flèche 1 (Envoi Requête) : Part du Client 
+→
+→
+ Va vers la File.
+Label : msgsnd(&req)
+Détail : TYPE_REQ (1)
+Contenu : Action (Réserver), ID, Places.
+Flèche 2 (Réception Serveur) : Part de la File 
+→
+→
+ Va vers le Serveur.
+Label : msgrcv(&req, TYPE_REQ)
+Action : Le serveur sort le message de la file et traite la demande.
+Flèche 3 (Envoi Réponse) : Part du Serveur 
+→
+→
+ Va vers la File.
+Label : msgsnd(&res)
+Détail : TYPE_RES (2)
+Contenu : Texte ("Réservation OK" ou "Erreur").
+Flèche 4 (Réception Client) : Part de la File 
+→
+→
+ Va vers le Client.
+Label : msgrcv(&res, TYPE_RES)
+Action : Le client affiche le résultat à l'utilisateur.
+
+
+
